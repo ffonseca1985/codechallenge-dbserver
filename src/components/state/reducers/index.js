@@ -6,7 +6,6 @@ import { reducer as formReducer } from 'redux-form';
 
 const reducers = combineReducers(
     {
-        containerReducer,
         truckReducer,
         form: formReducer,
         containerFormReducer,

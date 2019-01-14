@@ -38,6 +38,7 @@ const mapStateToProps = function (state, props) {
 
 }
 const mapDispatchToAction = function (dispatch, state) {
+    
     return {
         openModalContainer: function () {
             dispatch(openModalContainer())

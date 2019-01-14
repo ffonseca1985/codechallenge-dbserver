@@ -1,6 +1,7 @@
 
-import { actionTypeTruckConstant } from '../constants/'
+import { actionTypeTruckConstant, actionTypeBeerForm } from '../constants/'
 import {Container} from '../../../models/container'
+import {Beer} from '../../../models/beer'
 
 const initialState = {
     containers: []
@@ -20,18 +21,41 @@ const truckReducer = function(state = initialState, action){
             }
             newState.containers.push(new Container(action.container.name, action.container.temperature))        
             return newState;
+
         case actionTypeTruckConstant.removeContainer:
 
             var container = state.containers
             var newContainer = removeByName(container, action.container.name)
             newState.containers = newContainer
             return newState
+
+        case actionTypeBeerForm.addBeer:
+            addBeer(newState.containers, action.containerName, action.beerName)    
+            return newState
+
         default:
             return state
     }
 } 
 
 export default truckReducer
+
+function addBeer(containers, name, beerName){
+    
+    var result = containers;
+    for (let index = 0; index < containers.length; index++) {
+        const element = containers[index];
+
+        if (element.name == name) {
+            result = element
+            break
+        }
+    }
+
+    let beer = Beer.getBeerbyName(beerName)
+    result.addBeer(beer)
+}
+
 
 function exist(containers, name) {
 
@@ -43,7 +67,6 @@ function exist(containers, name) {
             result = true
             break
         }
-
     }
 
     return result

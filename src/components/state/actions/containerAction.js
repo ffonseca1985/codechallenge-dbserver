@@ -1,11 +1,12 @@
 
 import { actionTypeContainerConstant, actionTypeContainerFormConstant, actionTypeBeerForm} from '../constants/'
 
-const addBeerAction = function (beer){
+const addBeerAction = function (containerName, beerName){
     
     return {
-        type: actionTypeContainerConstant.addBeer,
-        beer
+        type: actionTypeBeerForm.addBeer,
+        containerName,
+        beerName
     }
 }
 

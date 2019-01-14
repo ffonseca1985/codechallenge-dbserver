@@ -1,27 +1,12 @@
 
-import {actionTypeContainerConstant, actionTypeContainerFormConstant, actionTypeBeerForm} from '../constants/'
-
-const defaultContainerState = {
-    beers: []
-}
-
-const containerReducer = function(state = defaultContainerState, action){
-
-    var newState = Object.assign({}, state)
-
-    switch (action.type) {
-        case actionTypeContainerConstant.removeBeer:
-        default:
-            return newState
-    }
-}
+import { actionTypeContainerConstant, actionTypeContainerFormConstant, actionTypeBeerForm } from '../constants/'
 
 const defaultBeerFromState = {
     active: false
 }
 
-const beerFormReducer = function(state = defaultBeerFromState, action){
-    
+const beerFormReducer = function (state = defaultBeerFromState, action) {
+
     var newState = Object.assign({}, state)
 
     switch (action.type) {
@@ -32,7 +17,7 @@ const beerFormReducer = function(state = defaultBeerFromState, action){
             newState.active = false
             return newState
         default:
-            return newState  
+            return newState
     }
 }
 
@@ -50,10 +35,10 @@ const containerFormReducer = function (state = defaultContainerFormState, action
             return newState
         case actionTypeContainerFormConstant.closeModalContainer:
             newState.active = false
-            return newState    
+            return newState
         default:
             return newState
     }
 }
 
-export {containerReducer, containerFormReducer, beerFormReducer}
+export {  containerFormReducer, beerFormReducer }

@@ -20,10 +20,10 @@ class ContainerForm extends React.Component {
                 </ModalHeader>
                 <ModalBody>
                     <form onSubmit={handleSubmit}>
-                    
+
                         <div className="form-group">
                             <label>Choose a beer</label>
-                            <Field className="form-control" name="beer" component="select" type="text">
+                            <Field className="form-control" name="nameBeer" component="select" type="text">
                                 {
                                     BeerMock().map((b) => (
                                         <option key={b.name} value={b.name}>{b.name}</option>

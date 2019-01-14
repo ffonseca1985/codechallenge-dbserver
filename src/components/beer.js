@@ -9,11 +9,11 @@ class Beer extends React.Component {
     }
 
     render()  {
-        const {name, minTemp, maxTemp, increase, decrease} = this.props;
+        const {name, status, increase, decrease} = this.props;
 
         return (
             <section>
-                  <Label>{name}</Label>
+                  <Label>{name}</Label> { } -- { }
                   <Label>{status}</Label>
             </section>
         )
