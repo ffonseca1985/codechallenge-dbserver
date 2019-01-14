@@ -1,28 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Provider } from 'react-redux'
+import store from './components/state/store'
+import Truck from './components/truck'
+import { Container, Row, Col } from 'reactstrap'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+class App extends React.Component {
+
+    render() {
+        return (
+            <Provider store={store}>
+                <Container>
+                    <Row>
+                        <Col xs='12'>
+                            <header>
+                                <h1>Code Challenge DbServer</h1>
+                            </header>
+                        </Col>
+                        <Col xs='12'>
+                            <Truck />
+                        </Col>
+                    </Row>
+                </Container>
+            </Provider>
+        )
+    }
 }
 
-export default App;
+export default App
