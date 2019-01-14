@@ -1,6 +1,5 @@
 
 var actionTypeContainerConstant = {
-    addBeer: 'addBeer',
     removeBeer: 'removeBeer'
 }
 
@@ -17,4 +16,10 @@ var actionTypeTruckConstant = {
     openContainer: 'openContainer'
 }
 
-export {actionTypeContainerConstant, actionTypeTruckConstant, actionTypeContainerFormConstant}
+var actionTypeBeerForm = {
+    openModalBeer: 'openModalBeer',
+    closeModalBeer: 'closeModalBeer',
+    addBeer: 'addBeer'
+}
+
+export {actionTypeContainerConstant, actionTypeTruckConstant, actionTypeContainerFormConstant, actionTypeBeerForm}

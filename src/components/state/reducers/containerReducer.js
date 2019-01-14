@@ -1,5 +1,5 @@
 
-import {actionTypeContainerConstant, actionTypeContainerFormConstant} from '../constants/'
+import {actionTypeContainerConstant, actionTypeContainerFormConstant, actionTypeBeerForm} from '../constants/'
 
 const defaultContainerState = {
     beers: []
@@ -10,10 +10,29 @@ const containerReducer = function(state = defaultContainerState, action){
     var newState = Object.assign({}, state)
 
     switch (action.type) {
-        case actionTypeContainerConstant.add:
-            return newState 
+        case actionTypeContainerConstant.removeBeer:
         default:
             return newState
+    }
+}
+
+const defaultBeerFromState = {
+    active: false
+}
+
+const beerFormReducer = function(state = defaultBeerFromState, action){
+    
+    var newState = Object.assign({}, state)
+
+    switch (action.type) {
+        case actionTypeBeerForm.openModalBeer:
+            newState.active = true
+            return newState
+        case actionTypeBeerForm.closeModalBeer:
+            newState.active = false
+            return newState
+        default:
+            return newState  
     }
 }
 
@@ -35,7 +54,6 @@ const containerFormReducer = function (state = defaultContainerFormState, action
         default:
             return newState
     }
-    return state
 }
 
-export {containerReducer, containerFormReducer}
+export {containerReducer, containerFormReducer, beerFormReducer}

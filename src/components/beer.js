@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Label, Button } from 'reactstrap'
+import { Label } from 'reactstrap'
 
 class Beer extends React.Component {
 
@@ -14,8 +14,7 @@ class Beer extends React.Component {
         return (
             <section>
                   <Label>{name}</Label>
-                  <Label>Min. temperature: {minTemp}</Label>
-                  <Label>Max. temperature: {maxTemp}</Label>
+                  <Label>{status}</Label>
             </section>
         )
     }

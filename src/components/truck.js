@@ -18,8 +18,8 @@ class Truck extends React.Component {
                     <h3>Truck <hr /></h3>
                 </header>
                 {
-                    containers.map((container, index) => (
-                        <Container key={index} name={container.name} temperature={container.temperature} removeContainer={() => removeContainer(container)} />)
+                    containers.map((container) => (
+                        <Container key={container.name} name={container.name} temperature={container.temperature} removeContainer={() => removeContainer(container)} />)
                     )}
 
                 <Button color='primary' onClick={openModalContainer}>Add Container</Button>
