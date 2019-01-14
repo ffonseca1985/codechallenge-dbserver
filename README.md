@@ -1,3 +1,19 @@
+# Hi!
+## Tecnology used
+My project I did in React, Redux, Redux-Form, Ecma6 end Bootstrap
+Note: if you want me to create in angular I can also do!!
+
+## What did I do?
+I created a dynamic project in which the user places the containers in the truck.
+Analogously, users also place the drinks in the container
+
+The validation of temperature is basead in standard beer temperature x temperature container.
+Note: I could put more things, but it's 02:05am
+
+## I am not create the backend in node, because is 02:05am, if you want i can to create (Please!!)
+I start to do this test today at 06:30 pm, because i was very buzzy, but I still think the project was cool!!!
+
+# Enviroment
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
