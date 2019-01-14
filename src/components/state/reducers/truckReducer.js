@@ -1,5 +1,5 @@
 
-import { actionTypeTruckConstant, actionTypeBeerForm } from '../constants/'
+import { actionTypeTruckConstant, actionTypeBeerForm, actionTypeContainerConstant } from '../constants/'
 import {Container} from '../../../models/container'
 import {Beer} from '../../../models/beer'
 
@@ -25,9 +25,17 @@ const truckReducer = function(state = initialState, action){
         case actionTypeTruckConstant.removeContainer:
 
             var container = state.containers
-            var newContainer = removeByName(container, action.container.name)
+            var newContainer = removeByName(container, action.container.containerName)
             newState.containers = newContainer
             return newState
+
+        case actionTypeContainerConstant.increaseTemperature:
+            increase(newState.containers, action.containerName)
+            return newState
+
+        case actionTypeContainerConstant.decreaseTemperature:
+            decrease(newState.containers, action.containerName)
+            return newState    
 
         case actionTypeBeerForm.addBeer:
             addBeer(newState.containers, action.containerName, action.beerName)    
@@ -39,6 +47,43 @@ const truckReducer = function(state = initialState, action){
 } 
 
 export default truckReducer
+
+
+function decrease(containers, name){
+
+    var result;
+    for (let index = 0; index < containers.length; index++) {
+        const element = containers[index];
+
+        if (element.name == name) {
+            result = element
+            result.temperature = parseFloat(result.temperature) - 1
+            break
+        }
+    }
+
+    for (let index = 0; index < result.beers.length; index++) {
+        result.beers[index].setRoomTemperature(result.temperature);
+    }
+}
+
+function increase(containers, name){
+
+    var result;
+    for (let index = 0; index < containers.length; index++) {
+        const element = containers[index];
+
+        if (element.name == name) {
+            result = element
+            result.temperature = parseFloat(result.temperature) + 1
+            break
+        }
+    }
+
+    for (let index = 0; index < result.beers.length; index++) {
+        result.beers[index].setRoomTemperature(result.temperature);
+    }
+}
 
 function addBeer(containers, name, beerName){
     

@@ -1,6 +1,8 @@
 
 var actionTypeContainerConstant = {
-    removeBeer: 'removeBeer'
+    removeBeer: 'removeBeer',
+    decreaseTemperature: 'decreaseTemperature',
+    increaseTemperature: 'increaseTemperature'
 }
 
 var actionTypeContainerFormConstant = {
@@ -15,6 +17,7 @@ var actionTypeTruckConstant = {
     openDoor: 'openDoor',
     openContainer: 'openContainer'
 }
+
 
 var actionTypeBeerForm = {
     openModalBeer: 'openModalBeer',

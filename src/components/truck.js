@@ -19,7 +19,7 @@ class Truck extends React.Component {
                 </header>
                 {
                     containers.map((container) => (
-                        <Container key={container.name} name={container.name} temperature={container.temperature} removeContainer={() => removeContainer(container)} />)
+                        <Container key={container.name} name={container.name} temperature={container.getTemperature()} removeContainer={() => removeContainer(container)} />)
                     )}
 
                 <Button color='primary' onClick={openModalContainer}>Add Container</Button>
@@ -31,6 +31,7 @@ class Truck extends React.Component {
 
 const mapStateToProps = function (state, props) {
 
+    console.log(state.truckReducer.containers)
     return {
         containers: state.truckReducer.containers,
         active: state.containerFormReducer.active

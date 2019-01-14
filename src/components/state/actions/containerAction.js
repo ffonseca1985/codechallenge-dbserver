@@ -10,6 +10,20 @@ const addBeerAction = function (containerName, beerName){
     }
 }
 
+const increaseAction = function(containerName){
+    return{
+        type: actionTypeContainerConstant.increaseTemperature,
+        containerName
+    }
+}
+
+const decreaseAction = function(containerName){
+    return{
+        type: actionTypeContainerConstant.decreaseTemperature,
+        containerName
+    }
+}
+
 const removeBeerAction = function (beer){
     
     return {
@@ -42,4 +56,4 @@ const closeModalContainer = function () {
     }
 }
 
-export { addBeerAction, removeBeerAction, openModalContainer, closeModalContainer, openModalBeerAction, closeModalBeerAction }
+export { addBeerAction, removeBeerAction, openModalContainer, closeModalContainer, openModalBeerAction, closeModalBeerAction,  increaseAction, decreaseAction }

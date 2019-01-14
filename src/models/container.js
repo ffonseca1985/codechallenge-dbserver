@@ -10,6 +10,10 @@ class Container {
     addBeer(beer){
         this.beers.push(beer)
     }
+
+    getTemperature(){
+        return this.temperature
+    } 
 }
 
 export {Container}

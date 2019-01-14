@@ -1,7 +1,7 @@
 
 import React from 'react'
 import {Button } from 'reactstrap'
-import { openModalBeerAction, closeModalBeerAction, addBeerAction } from './../components/state/actions/containerAction'
+import { openModalBeerAction, closeModalBeerAction, addBeerAction, increaseAction,  decreaseAction } from './../components/state/actions/containerAction'
 import BeerForm from './../components/forms/BeerForm'
 
 import swal from 'sweetalert'
@@ -11,8 +11,9 @@ import { connect } from 'react-redux'
 class Container extends React.Component {
 
     render() {
-        const { active, close, beers, name, temperature, addBear, removeContainer, handleSubmit } = this.props
+        const { active, close, beers, name, temperature, addBear, removeContainer, handleSubmit,  handleIncrease, handleDecrease } = this.props
         
+        console.log(temperature) 
         const submit = function(values){
 
             if(!values.nameBeer)
@@ -24,11 +25,22 @@ class Container extends React.Component {
             handleSubmit(name, values)
         }
 
+        const decrease = function(){
+            handleDecrease(name)
+        }
+
+        const increase = function(){
+            handleIncrease(name)
+        }
+
         return (
             <section> 
                 <section>
                        <div> Name Container: {name} </div>
-                       <div> Temperature(°C): {temperature} </div>
+                       <div> 
+                           Temperature(°C): {temperature} {   }
+                           <Button onClick={increase}>+</Button> <Button onClick={decrease}>-</Button>
+                        </div>
                 </section> 
                 <section>
                     <h4>BEERS</h4>
@@ -54,7 +66,8 @@ var mapStateToProp = function(state, props){
  
     return {
         active: state.beerFormReducer.active,
-        beers: getContainer(state.truckReducer.containers, props.name)
+        beers: getBeersByContainer(state.truckReducer.containers, props.name),
+        temperature: getContainer(state.truckReducer.containers, props.name).temperature
     }
 }
 
@@ -69,6 +82,12 @@ var mapDispatchToAction = function(dispach, state){
         handleSubmit: function(nameContainer, values){
             dispach(addBeerAction(nameContainer, values.nameBeer))
             dispach(closeModalBeerAction())
+        },
+        handleIncrease: function(name){
+            dispach(increaseAction(name))
+        },
+        handleDecrease: function(name){
+            dispach(decreaseAction(name))
         }
     }
 }
@@ -76,6 +95,16 @@ var mapDispatchToAction = function(dispach, state){
 export default connect(mapStateToProp,  mapDispatchToAction)(Container)
 
 function getContainer(containers,  name){
+
+    for (let index = 0; index < containers.length; index++) {
+        const element = containers[index];
+        if (element.name== name)
+            return element
+    }
+}
+
+function getBeersByContainer(containers,  name){
+
     for (let index = 0; index < containers.length; index++) {
         const element = containers[index];
         if (element.name== name)
