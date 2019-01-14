@@ -13,7 +13,7 @@ class Beer {
     }
 
     isGood(){
-        return this.currentTemperature > this.minTemperature && this.currentTemperature < this.maxTemperature
+        return this.currentTemperature >= this.minTemperature && this.currentTemperature <= this.maxTemperature
     }
 
     getMessageTemperature(){

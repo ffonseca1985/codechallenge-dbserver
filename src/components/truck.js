@@ -2,6 +2,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Container from './container'
+import swal from 'sweetalert'
 import { Button, Label } from 'reactstrap'
 import ContainerForm from '../components/forms/ContainerForm'
 import { openModalContainer, closeModalContainer } from '../components/state/actions/containerAction'
@@ -31,7 +32,6 @@ class Truck extends React.Component {
 
 const mapStateToProps = function (state, props) {
 
-    console.log(state.truckReducer.containers)
     return {
         containers: state.truckReducer.containers,
         active: state.containerFormReducer.active
@@ -45,6 +45,15 @@ const mapDispatchToAction = function (dispatch, state) {
             dispatch(openModalContainer())
         },
         handleSubmitContainer: function(values) {
+            if(values.name == undefined || values.name == ''){
+                swal('Ops...', 'Field name not is fill', 'error')
+                return
+            } 
+
+            if(values.temperature == undefined || values.temperature == ''){
+                swal('Ops...', 'Field Temperature not is fill', 'error')
+                return
+            } 
 
             dispatch(addContainer(values))
             dispatch(closeModalContainer())            
