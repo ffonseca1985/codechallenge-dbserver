@@ -42,7 +42,7 @@ export default truckReducer
 
 function addBeer(containers, name, beerName){
     
-    var result = containers;
+    var result;
     for (let index = 0; index < containers.length; index++) {
         const element = containers[index];
 
@@ -53,6 +53,7 @@ function addBeer(containers, name, beerName){
     }
 
     let beer = Beer.getBeerbyName(beerName)
+    beer.setRoomTemperature(result.temperature)
     result.addBeer(beer)
 }
 

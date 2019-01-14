@@ -8,7 +8,7 @@ class Beer {
         this.currentTemperature = currentTemperature
     }
     
-    setCurrentTemperature(currentTemperature){
+    setRoomTemperature(currentTemperature){
         this.currentTemperature= currentTemperature
     }
 
@@ -17,7 +17,8 @@ class Beer {
     }
 
     getMessageTemperature(){
-        return this.isGood() ? 'Temperature Ok': 'Temperature is not Ok' 
+        var isGood = this.isGood()
+        return isGood ? 'Temperature Ok': 'Temperature is not Ok' 
     }
 
     static getBeerbyName(name){
