@@ -35,13 +35,13 @@ class Container extends React.Component {
                     {
                         beers.map((beer, index) => 
                         (
-                            <Beer name={beer.name} status={beer.getMessageTemperature()}></Beer>
+                            <Beer key={index} name={beer.name} status={beer.getMessageTemperature()}></Beer>
                         ))
                     }
                 </section>
                 <section>  
                     <Button color="primary" onClick={addBear}>Add Bear</Button>
-                    <Button color="danger" onClick={removeContainer}>Remove Container</Button>
+                    {/* <Button color="danger" onClick={removeContainer}>Remove Container</Button> */}
                 </section>
                 <BeerForm active={active} close={close} onSubmit={submit}></BeerForm>
                 <hr />
